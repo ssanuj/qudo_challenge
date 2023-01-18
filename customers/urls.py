@@ -21,6 +21,8 @@ from products import views as product_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
+    path('products/orders/', product_view.orders, name ='orders'),
+    path('products/order_history/', product_view.order_history, name ='order_history'),
     path('products/signup/', product_view.signup, name ='signup'),
     path('products/signin/', product_view.signin, name = 'login'),
     path('products/signout/', product_view.signout, name = 'logout'),
