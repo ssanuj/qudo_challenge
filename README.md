@@ -30,7 +30,7 @@ Getting Started
 First clone the repository from Github and switch to the new directory:
 
 $ git clone https://github.com/ssanuj/qudo_challenge.git
-cd qudo_challenge
+$ cd qudo_challenge
 
 Activate the virtualenv for your project.
 python -m venv env
