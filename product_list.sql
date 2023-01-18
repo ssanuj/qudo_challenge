@@ -1,0 +1,12 @@
+insert into Products(name, price) values('Bridge to Terabithia', 12.00);
+insert into Products(name, price) values('The Girl Who Drank the Moon', 10.00);
+insert into Products(name, price) values('Harry Potter and the Prisoner of Azkaban', 15.00);
+insert into Products(name, price) values('Ghost Boys', 2.00);
+insert into Products(name, price) values('Crossover', 12.50);
+insert into Products(name, price) values('LOST in the Pacific, 1942', 20.00);
+insert into Products(name, price) values('War Horse', 11.00);
+insert into Products(name, price) values('Escape from Mr. Lemoncello’s Library', 10.00);
+insert into Products(name, price) values('The Name of This Book Is Secret', 2.70);
+insert into Products(name, price) values('THarry Potter and the Chamber of Secrets', 2.00);
+insert into Products(name, price) values('The Chronicles of Narnia: The Lion, The Witch, & The Wardrobe', 10.00);
+insert into Products(name, price) values('The School for Good and Evil', 9.00);
