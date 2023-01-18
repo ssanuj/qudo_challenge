@@ -1,0 +1,56 @@
+Introduction
+The goal of this project is to provide minimalistic django project for customers to see the catalogue and order from the catalogue.
+Template is written with django 4.1.5 ,python 3.10.9 and sqlite database.
+
+Main Features
+
+
+User registration and logging in 
+
+Paginated list of products
+
+Customer able to create orders
+
+Number of products in stock should decrease after an order is made
+
+Customers may see their history of orders.
+
+Separated requirements files
+
+SQLite by default if no env variable is set
+
+Usage
+To use this template to start your own project:
+
+
+{{ Catalogue order }}
+Getting Started
+First clone the repository from Github and switch to the new directory:
+
+$ git clone https://github.com/ssanuj/qudo_challenge.git
+
+Activate the virtualenv for your project.
+
+Install project dependencies:
+
+$ pip install -r requirements.txt
+Then simply apply the migrations:
+
+$ python manage.py migrate
+You can now run the development server:
+
+$ python manage.py runserver
+
+There are 2 models for the project Product and Order. Product containing the name, price and available_stock_quantity.
+order containing name of the user which has ordered(derived from the request.user), the price, creation date and the product foreign key.
+
+Following views are avaible
+
+product view: which list all the products in the catalogue with its price and quantity available.
+orders: Which enables the user to order any product from the catalogue only if there is enough stock.
+order_history: list the past orders made by the user.
+
+views for signin, signup and logout
+
+Todo: Deployment instructions for any majorproviders. Didn't have time to complete this. 
+
