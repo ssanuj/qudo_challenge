@@ -7,6 +7,7 @@
 
 </head>
 <body>
+    <!--Product list-->
     <h3>Catalogue</h3>
     <table class="table table-striped">
         <tr>
@@ -23,7 +24,7 @@
           </tr>
         {% endfor %}
       </table>
-      
+      <!--Pagination-->
       <div class="pagination">
         <span class="step-links">
             {% if products.has_previous %}
@@ -41,7 +42,17 @@
             {% endif %}
         </span>
     </div>      
+
+<div class="container mb-5">
+  <div class="row justify-content-center mt-1">
+      <div class="col-md-12 col-sm-12 p-4">
+          <a href = "{% url 'logout' %}">Logout here</a> 
+     
+          <div><a href = "{% url 'orders' %}">Place orders</a></div> 
+          <div><a href ="{% url 'order_history' %}">Order History</a></div>
+      </div>
+  </div>
+  
+</div>
 </body>
 </html>
-<a href ="{}">orders</a>
-<a href = "{% url 'logout' %}">Logout here</a>
