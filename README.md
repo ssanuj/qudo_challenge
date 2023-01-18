@@ -41,12 +41,20 @@ Install project dependencies:
 $ pip install -r requirements.txt
 
 Then make migrations:
+
 $ python manage.py makemigrations
 
 $ python manage.py migrate
 You can now run the development server:
 
 $ python manage.py runserver
+
+You can create a superuser to have access to the django admin.
+
+$ python manage.py createsuperuser
+
+add the username and passowrd at the prompt.
+
 
 Copy and paste the following url:
 
