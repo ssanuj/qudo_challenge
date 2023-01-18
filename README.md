@@ -22,10 +22,9 @@ Separated requirements files
 SQLite by default if no env variable is set
 
 Usage
-To use this template to start your own project:
+Follow the steps below to start the project.
 
 
-{{ Catalogue order }}
 Getting Started
 First clone the repository from Github and switch to the new directory:
 
