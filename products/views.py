@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import Product
+from .models import Product,Order
 
 
 # display the list of the products if the user authentication is a success
@@ -23,17 +23,55 @@ def products(request):
      
     else:
         return redirect('/products/signin')
-# Place orders by listing the available books
+# view  available books for ordering
 def orders(request):
     # check user authentications
     if request.user.is_authenticated:
         #get the available books to order
-        available_books = Product.obejects.filter()
-        context = {}
+        order_list = Product.objects.all().filter(stock_quantity__gt=0).values('name','stock_quantity','price').order_by('name')
+        context = {'order_list': order_list} 
+        
         return render(request, "products/orders.html",context)
     else:
         return redirect('/products/signin')
+# get the items that are checked
+def place_order(request):
+    if request.user.is_authenticated:    
+        #get the username
+        user = request.user.username
+        #get the books to order
+        items = request.POST.getlist('items[]')
+        #get the item details
+        item_details = Product.objects.filter(name__in=items).values_list('id','price')
+        #book_names = []
+        book_id = []
+        total_amount = 0
+        for row in item_details:
+            # update the product table
+            p = Product.objects.get(id=row[0])
+            p.stock_quantity -= 1
+            p.save()
+            # create an entry in the orders table
+            update_order = Order.objects.create(price=row[0],order_name=user,product=p)
+            update_order.save()
+        return redirect('/products')
+    else:
+        return redirect('/products/signin')
+# retrieve the order hisroty for the user
+def order_history(request):
+    if request.user.is_authenticated:
+        # get the product list from the product table
+        order_history = Order.objects.all().values('product__name', 'price').filter(order_name=request.user.username).order_by('created_on')
         
+        context = {
+            'order_history': order_history
+        }
+    
+        return render(request, "products/order_history.html", context)
+     
+    else:
+        return redirect('/products/signin')
+
 def signup(request):
  
     if request.user.is_authenticated:
